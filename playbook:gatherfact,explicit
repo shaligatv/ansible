@@ -1,0 +1,8 @@
+- name: setup module
+  hosts: server1
+  gather_facts: yes
+  tasks:
+    - name: gather_facts
+      debug:
+        msg: "The hostname is {{ansible_hostname}}"
+~                                                          
