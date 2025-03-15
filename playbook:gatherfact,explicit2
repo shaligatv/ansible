@@ -1,0 +1,9 @@
+- name: setup module
+  hosts: server1
+  gather_facts: no
+  tasks:
+    - name:
+      debug:
+        msg: "The pass is {{ansible_become_pass}}"
+~                                                                                                                                                                                                                                             
+~                                                     
