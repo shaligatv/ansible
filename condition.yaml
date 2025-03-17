@@ -1,0 +1,19 @@
+- name: condition checking
+  hosts: server1
+  tasks:
+  - name: installing httpd
+    dnf:
+      name: httpd
+      state: present
+    when:
+    - ansible_distribution == 'AlmaLinux'
+    - ansible_os_family == 'RedHat'
+  - name: Enable and Start httpd
+    service:
+      name: httpd
+      enabled: yes
+      state: started
+    when:
+    - ansible_distribution == 'AlmaLinux'
+    - ansible_os_family == 'RedHat'
+
