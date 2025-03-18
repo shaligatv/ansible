@@ -1,0 +1,7 @@
+- name: Template
+  hosts: server1
+  tasks:
+  - name: to copy
+    template:
+      src: new.j2
+      dest: /home/shaliga/
