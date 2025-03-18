@@ -1,0 +1,7 @@
+- name: copy
+  hosts: server1
+  tasks:
+  - name: to copy
+    copy:
+      src: new.j2
+      dest: /home/shaliga/
