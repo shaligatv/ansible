@@ -7,5 +7,6 @@
         msg: |
              "The user is {{ansible_user}}"
              "The host is {{ansible_host}}"
+             "ansible_become:{{ansible_become}}"
              "ansible_become_method:{{ansible_become_method}}"
              "ansible_become_pass:{{ansible_become_pass}}"
