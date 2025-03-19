@@ -1,0 +1,10 @@
+- name: print fact_variable
+  hosts: server1
+  tasks:
+    - name: debug
+      debug:
+        msg: |
+          "The ip address is {{ansible_default_ipv4}}"
+          "The os_name is {{ansible_distribution}}"
+          "The os_ version is {{ansible_version}}"
+          "The processor_name is {{ansible_processor}}"
