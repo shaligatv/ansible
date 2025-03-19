@@ -1,0 +1,18 @@
+- name: condition checking
+  hosts: server2
+  tasks:
+  - name: installing chronyd
+    dnf:
+      name: chrony
+      state: present
+    when:
+    - ansible_distribution == 'AlmaLinux'
+    - ansible_os_family == 'RedHat'
+  - name: Enable and Start chronyd
+    service:
+      name: chronyd
+      enabled: yes
+      state: started
+    when:
+    - ansible_distribution == 'AlmaLinux'
+    - ansible_os_family == 'RedHat'
