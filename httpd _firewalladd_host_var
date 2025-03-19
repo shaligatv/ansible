@@ -1,0 +1,34 @@
+- name: hostvars and groupvars
+  hosts: server2
+  tasks:
+    - name: installing package
+      ansible.builtin.dnf:
+        name: "{{abc}}"
+        state: present
+
+    - name: enabling and starting service
+      ansible.builtin.service:
+        name: "{{dfg}}"
+        enabled: yes
+        state: started
+
+    - name: copy files
+      ansible.builtin.copy:
+        src: index.html
+        dest: "{{path}}"
+
+    - name: firewall settings
+      ansible.builtin.firewalld:
+        service: http
+        state: enabled
+        permanent: true
+
+    - name: restarting service
+      ansible.builtin.service:
+        name: httpd
+        state: restarted
+
+  handlers:
+    - name: reloading
+      ansible.builtin.firewalld:
+        state: reloaded
