@@ -1,0 +1,34 @@
+---
+# tasks file for nginxrolefirewall/
+- name: installing
+  dnf:
+    name: "{{package}}"
+    state: present
+- name: enabling & starting
+  service:
+    name: "{{service}}"
+    enabled: yes
+    state: started
+- name: copy file
+  copy:
+    src: newfile2
+    dest: /home/shaliga
+- name: configarating firewall to allow nginx
+  ansible.builtin.firewalld:
+    service: http
+    state: enabled
+    permanent: true
+- name: restarting nginx service
+  ansible.builtin.service:
+    name: nginx
+    state: restarted
+- name: template setting
+  template:
+    src: index.html.j2
+    dest: "{{path}}/index.html"
+  notify: restarted
+- name: restarting
+  service:
+    name: "{{service}}"
+    state: restarted
+  when: service is defined
