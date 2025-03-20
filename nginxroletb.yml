@@ -1,0 +1,4 @@
+- name: tb
+  hosts: server1
+  roles:
+    - nginxrole
