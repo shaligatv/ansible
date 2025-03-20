@@ -1,0 +1,6 @@
+---
+# handlers file for nginxrole
+- name: restarted
+  service:
+    name: "{{service}}"
+    state: restarted
