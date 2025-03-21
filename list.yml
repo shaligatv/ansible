@@ -1,0 +1,11 @@
+- name: setting list
+  hosts: server2
+  tasks:
+  - name: installing
+    dnf:
+      name:
+         - chrony
+         - nfs-utils
+         - vim
+         - tree
+      state: present
