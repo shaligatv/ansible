@@ -1,0 +1,5 @@
+---
+# defaults file for httpdrolefirewall/
+package: httpd
+service: httpd
+path: /var/www/html                   
