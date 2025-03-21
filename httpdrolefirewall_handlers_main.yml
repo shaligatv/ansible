@@ -1,0 +1,6 @@
+---
+# handlers file for httpdrolefirewall/
+- name: restarted
+  service:
+    name: "{{service}}"
+    state: restarted
