@@ -1,0 +1,6 @@
+---
+# handlers file for nginxrolefirewall/
+- name: restarted
+  service:
+    name: "{{service}}"
+    state: restarted
