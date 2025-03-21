@@ -1,0 +1,4 @@
+- name: tb
+  hosts: server2
+  roles:
+    - httpdrolefirewall
